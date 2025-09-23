@@ -1,9 +1,10 @@
+import "./globals.css";
+import "./prism.css";
+
 import { AppContextProvider } from "@/context/AppContext";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import "./globals.css";
-import "./prism.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -43,7 +44,6 @@ export const metadata = {
     icon: "/favicon.svg",
   },
 
-  viewport: "width=device-width, initial-scale=1",
   charset: "UTF-8",
 };
 
@@ -52,7 +52,11 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <AppContextProvider>
         <html lang="en" className="hydrated">
-          <body className={`${inter.className} antialiased`}>
+
+                   <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <body className={`${inter.className} antialiased`}               cz-shortcut-listen="true"
+>
+
             <Toaster
               toastOptions={{
                 success: { style: { background: "black", color: "white" } },
