@@ -1,30 +1,40 @@
 # DeepSeek Clone
 
-DeepSeek Clone is a web application designed to provide an interactive chat interface powered by **AI**. It allows users to engage in conversations, manage chats, and perform actions like renaming or deleting chats. The application is built using modern web technologies such as React, Next.js, and Node.js.
+DeepSeek Clone is a web application designed to provide an interactive chat interface powered by **AI**.  
+It allows users to engage in conversations, manage chats, and perform actions like renaming or deleting chats.  
+The application is built using modern web technologies such as React, Next.js, and Node.js.
 
-## LIVE - DEMO 🌐
+---
 
-Visit the 👉 [LINK 🔗](https://deepseek-adon.vercel.app/)
+## 🌐 Live Demo
 
-## Features
+👉 [https://deepseek.adonr.dev](https://deepseek.adonr.dev)
 
-- **AI-Powered Chat**: Users can send prompts and receive responses from an AI model.
-- **Chat Management**: Users can rename or delete chats.
-- **Real-Time Updates**: Chat messages are updated dynamically in the UI.
-- **User Authentication**: Secure user authentication and session management.
-- **Responsive Design**: Optimized for both desktop and mobile devices.
+---
 
-## Tech Stack
+## 🚀 Features
 
-- **Frontend**: React, Next.js
-- **Backend**: Node.js, Clerk
-- **Database**: MongoDB
-- **Styling**: Tailwind CSS
-- **State Management**: Context API
-- **Notifications**: React Hot Toast
-- **API Integration**: Axios
+- 🤖 **AI-Powered Chat** – Send prompts and receive responses from an AI model.  
+- 💬 **Chat Management** – Rename or delete chats with ease.  
+- ⚡ **Real-Time Updates** – Messages update dynamically without refresh.  
+- 🔐 **User Authentication** – Secure login and session handling via Clerk.  
+- 📱 **Responsive Design** – Optimized for desktop and mobile devices.  
 
-## Folder Structure
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, Next.js  
+- **Backend:** Node.js, Clerk  
+- **Database:** MongoDB  
+- **Styling:** Tailwind CSS  
+- **State Management:** Context API  
+- **Notifications:** React Hot Toast  
+- **API Integration:** Axios  
+
+---
+
+## 📂 Folder Structure
 
 ```groovy
 deepseek-clone/
@@ -50,138 +60,64 @@ deepseek-clone/
 ├── styles/
 │   └── globals.css         # Global styles
 └── README.md               # Project documentation
+
 ```
 
-## Installation
+## ⚙️ Installation & Setup
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/adonbhuiyah/DeepSeek.git deepseek-clone
-   cd deepseek-clone
+1. Clone the repository
+   
+   ``` bash
+      git clone https://github.com/adonbhuiyah/DeepSeek.git deepseek-clone
+      cd deepseek-clone
    ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
+2. Install dependencies
+   
+  ``` bash
+    npm install
    ```
+3. Set up environment variables
+   Create a .env file in the root directory and add:
 
-3. Set up environment variables:
-   Create a `.env` file in the root directory and add the following:
+👇 Frontend (Public) Clerk Key – starts with pk_... 
 
-   ```env
-   # 👇 Frontend (Public) Clerk Key – starts with pk_...
-   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
 
-   # 👇 Backend (Secret) Clerk Key – starts with sk_...
-   CLERK_SECRET_KEY=your-clerk-secret-key
+👇 Backend (Secret) Clerk Key – starts with sk_... 
 
-   # 👇 Your MongoDB connection string
-   MONGODB_URI=your-mongodb-connection-string
+CLERK_SECRET_KEY=your-clerk-secret-key 
 
-   # 👇 Secret key used for signing webhooks (like SVIX)
-   SIGNING_SECRET=your-svix-signing-secret
+👇 Your MongoDB connection string 
 
-   # 👇 API key for DeepSeek or any AI/chat API service
-   DEEPSEEK_API_KEY=your-deepseek-api-key
+MONGODB_URI=your-mongodb-connection-string
 
+👇 Secret key used for signing webhooks (like SVIX) 
+
+SIGNING_SECRET=your-svix-signing-secret
+
+👇 API key for DeepSeek or any AI/chat API service 
+
+DEEPSEEK_API_KEY=your-deepseek-api-key
+
+4. Run the development server
+
+    ``` bash
+    npm run dev
    ```
+5. Open the app
+    Visit 👉 [http://localhost:3000](http://localhost:3000)
 
-4. Run the development server:
 
-   ```bash
-   npm run dev
-   ```
+## 🤝 Let's Connect!
 
-5. Open the application in your browser:
-   ```
-   http://localhost:3000
-   ```
+**Website:** [adonr.dev](https://adonr.dev)  
+**Email:** [contact@adonr.dev](mailto:contact@adonr.dev)  
+**GitHub:** [View My GitHub Profile](https://github.com/AdonBhuiyah)
 
-## API Endpoints
-
-### `/api/chat/ai`
-
-- **Method**: POST
-- **Description**: Sends a user prompt to the AI model and retrieves a response.
-- **Request Body**:
-  ```json
-  {
-    "chatId": "string",
-    "prompt": "string"
-  }
-  ```
-- **Response**:
-  ```json
-  {
-    "success": true,
-    "data": {
-      "content": "AI response"
-    }
-  }
-  ```
-
-### `/api/chat/rename`
-
-- **Method**: POST
-- **Description**: Renames a chat.
-- **Request Body**:
-  ```json
-  {
-    "chatId": "string",
-    "name": "string"
-  }
-  ```
-- **Response**:
-  ```json
-  {
-    "success": true,
-    "message": "Chat renamed successfully"
-  }
-  ```
-
-### `/api/chat/delete`
-
-- **Method**: POST
-- **Description**: Deletes a chat.
-- **Request Body**:
-  ```json
-  {
-    "chatId": "string"
-  }
-  ```
-- **Response**:
-  ```json
-  {
-    "success": true,
-    "message": "Chat deleted successfully"
-  }
-  ```
-
-## Components
-
-### `ChatLabel.jsx`
-
-- Displays individual chat labels in the sidebar.
-- Allows renaming and deleting chats via a dropdown menu.
-
-### `PromptBox.jsx`
-
-- Provides a text area for users to input prompts.
-- Handles sending prompts to the AI and displaying responses.
-
-### `Sidebar.jsx`
-
-- Displays a list of chats.
-- Allows users to select a chat to view or interact with.
-
-## Context API
-
-The `AppContext` provides global state management for the application, including:
-
-- `user`: Current logged-in user.
-- `chats`: List of user chats.
-- `selectedChat`: Currently selected chat.
-- `setChats`: Function to update the list of chats.
-- `setSelectedChat`: Function to update the selected chat.
+[![X (formerly Twitter)](https://img.shields.io/badge/-X-black?style=flat-square&logo=x&logoColor=white)](https://x.com/AdonBhuiyah)
+[![Telegram](https://img.shields.io/badge/-Telegram-26A5E4?style=flat-square&logo=telegram&logoColor=white)](https://t.me/AdonBhuiyah)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/AdonBhuiyah)
+[![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/AdonBhuiyah)
+[![Facebook](https://img.shields.io/badge/-Facebook-E4405F?style=flat-square&logo=facebook&logoColor=white)](https://facebook.com/AdonBhuiyah1)
+[![Pinterest](https://img.shields.io/badge/-Pinterest-BD081C?style=flat-square&logo=pinterest&logoColor=white)](https://pinterest.com/AdonBhuiyah)    
+[![Threads](https://img.shields.io/badge/-Threads-000000?style=flat-square&logo=threads&logoColor=white)](https://threads.net/AdonBhuiyah)   
